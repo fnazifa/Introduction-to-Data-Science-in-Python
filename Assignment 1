@@ -21,3 +21,29 @@ def grades():
         output = re.findall(r"(\w*)\W [B]", grades)
         return output
     raise NotImplementedError()    
+
+Part C
+
+import re
+def logs():
+    with open("assets/logdata.txt", "r") as file:
+        logdata = file.read()
+    
+    # YOUR CODE HERE
+    #re.findall(r("([\d+.]*) - ([\w-]* (\[.*\]) \"([\w+\/].*)\" ([^\d+]*)"), logdata)
+    
+        pattern = """
+                (?P<host>[\d+.]*)      
+                (\ -\ )  
+                (?P<user_name>[\w-]*) 
+                (\ \[) 
+                (?P<time>.*)
+                (\]\ \") 
+                (?P<request>[\w+\/].*)
+                (\")
+                """
+    # YOUR CODE HERE
+    result = []
+    for item in re.finditer(pattern, logdata, re.VERBOSE):
+        result.append(item.groupdict())
+    return result
