@@ -1,0 +1,23 @@
+# **Part A**
+
+import re
+def names():
+    simple_string = """Amy is 5 years old, and her sister Mary is 2 years old. 
+    Ruth and Peter, their parents, have 3 kids."""
+
+    # YOUR CODE HERE
+    output = re.findall(r"[A-Z]\w+", simple_string)
+    return output
+    #raise NotImplementedError()
+    
+Part B
+    
+    import re
+def grades():
+    with open ("assets/grades.txt", "r") as file:
+        grades = file.read()
+
+    # YOUR CODE HERE
+        output = re.findall(r"(\w*)\W [B]", grades)
+        return output
+    raise NotImplementedError()    
