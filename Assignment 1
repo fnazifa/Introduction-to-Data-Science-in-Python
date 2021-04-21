@@ -8,19 +8,22 @@ def names():
     # YOUR CODE HERE
     output = re.findall(r"[A-Z]\w+", simple_string)
     return output
+    
     #raise NotImplementedError()
     
 Part B
     
-    import re
+import re
 def grades():
     with open ("assets/grades.txt", "r") as file:
         grades = file.read()
 
     # YOUR CODE HERE
-        output = re.findall(r"(\w*)\W [B]", grades)
-        return output
-    raise NotImplementedError()    
+
+    pattern = "[\w]*\ [\w]*(?=:\ B)"
+    return re.findall(pattern, grades)
+
+    #raise NotImplementedError()
 
 Part C
 
